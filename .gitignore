@@ -2,7 +2,7 @@
 node_modules/
 */node_modules/
 
-# Environment files & Secrets (NEVER COMMIT)
+# Environment files & Secrets
 .env
 .env.*
 !.env.example
