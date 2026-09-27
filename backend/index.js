@@ -68,35 +68,21 @@ const PORT = process.env.PORT || 4000;
 })();
 
 // Middleware
-const configuredClientUrl = process.env.CLIENT_URL;
 const allowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:3000",
-  "http://localhost:4173",
-  "https://resto-gold-iota.vercel.app",
-  ...(configuredClientUrl ? configuredClientUrl.split(',').map((u) => u.trim()) : []),
+  "https://resto-gold-iota.vercel.app"
 ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (
-        !origin ||
-        allowedOrigins.includes(origin) ||
-        /\.vercel\.app$/.test(new URL(origin).hostname) ||
-        /\.onrender\.com$/.test(new URL(origin).hostname) ||
-        /\.netlify\.app$/.test(new URL(origin).hostname) ||
-        process.env.NODE_ENV !== 'production'
-      ) {
-        callback(null, true);
-      } else {
-        // Allow origin dynamically in cloud environments while keeping credentials support
-        callback(null, true);
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 app.use(express.json({ limit: '10mb' }));
 
 // API Routes
