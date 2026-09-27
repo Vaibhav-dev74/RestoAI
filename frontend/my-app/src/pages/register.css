@@ -1,0 +1,543 @@
+.register-bg-2028 {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float-shape 20s ease-in-out infinite;
+}
+
+.register-floating-shape.shape1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #06B6D4, #8B5CF6);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.register-floating-shape.shape2 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #ff5fcb, #06B6D4);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: 5s;
+}
+
+.register-accent-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-orb 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float-shape {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@keyframes pulse-orb {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.register-card-2028 {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease;
+  margin: auto;
+}
+
+.register-card-art {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.register-logo-2028 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.register-logo-2028 span {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #06B6D4, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-title-2028 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 32px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-form-2028 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-input-group {
+  position: relative;
+}
+
+.register-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.register-input-2028 {
+  width: 100%;
+  padding: 14px 14px 14px 46px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-input-2028:focus {
+  outline: none;
+  border-color: #06B6D4;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+}
+
+.register-float-input {
+  padding-top: 22px;
+  padding-bottom: 8px;
+}
+
+.register-float-label {
+  position: absolute;
+  left: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-float-label.active,
+.register-input-2028:focus + .register-float-label {
+  top: 12px;
+  font-size: 12px;
+  color: #06B6D4;
+  font-weight: 500;
+}
+
+.register-select-2028 {
+  width: 100%;
+  padding: 14px 14px 14px 46px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #1e293b;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-select-2028:focus {
+  outline: none;
+  border-color: #06B6D4;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+}
+
+.register-btn-2028 {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #06B6D4, #8B5CF6);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-btn-2028:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+}
+
+.register-btn-2028:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.register-btn-secondary {
+  background: transparent;
+  border: 2px solid #e2e8f0;
+  color: #64748b;
+  margin-top: 12px;
+  padding: 12px;
+  font-size: 15px;
+}
+
+.register-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: none;
+}
+
+.register-alert-2028 {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  font-size: 14px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-alert-2028.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.register-alert-icon {
+  font-size: 18px;
+}
+
+.register-bottom-2028 {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 15px;
+  color: #64748b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-link-2028 {
+  color: #06B6D4;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 6px;
+  transition: color 0.3s ease;
+}
+
+.register-link-2028:hover {
+  color: #8B5CF6;
+  text-decoration: underline;
+}
+
+.register-otp-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.register-otp-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.register-otp-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-otp-text {
+  font-size: 14px;
+  color: #64748b;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register-helper-text {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logo-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-shimmer-anim {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-bg-2028 {
+    padding: 16px;
+  }
+
+  .register-card-2028 {
+    padding: 36px 28px;
+    max-width: 100%;
+  }
+
+  .register-title-2028 {
+    font-size: 21px;
+  }
+
+  .register-logo-2028 span {
+    font-size: 23px;
+  }
+
+  .register-input-2028,
+  .register-select-2028 {
+    font-size: 15px;
+    padding: 13px 13px 13px 44px;
+  }
+
+  .register-btn-2028 {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .register-floating-shape.shape1,
+  .register-floating-shape.shape2 {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .register-bg-2028 {
+    padding: 12px;
+  }
+
+  .register-card-2028 {
+    padding: 32px 24px;
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .register-title-2028 {
+    font-size: 20px;
+    margin-bottom: 28px;
+  }
+
+  .register-logo-2028 span {
+    font-size: 22px;
+  }
+
+  .register-input-2028,
+  .register-select-2028 {
+    font-size: 15px;
+    padding: 12px 12px 12px 42px;
+  }
+
+  .register-float-input {
+    padding-top: 20px;
+    padding-bottom: 7px;
+  }
+
+  .register-btn-2028 {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .register-floating-shape.shape1,
+  .register-floating-shape.shape2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .register-form-2028 {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-bg-2028 {
+    padding: 10px;
+  }
+
+  .register-card-2028 {
+    padding: 28px 20px;
+    border-radius: 18px;
+  }
+
+  .register-title-2028 {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .register-logo-2028 {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .register-logo-2028 span {
+    font-size: 20px;
+  }
+
+  .register-input-2028,
+  .register-select-2028 {
+    font-size: 14px;
+    padding: 11px 11px 11px 40px;
+    border-radius: 10px;
+  }
+
+  .register-input-icon {
+    left: 12px;
+  }
+
+  .register-float-label {
+    left: 40px;
+    font-size: 14px;
+  }
+
+  .register-float-label.active,
+  .register-input-2028:focus + .register-float-label {
+    font-size: 11px;
+  }
+
+  .register-btn-2028 {
+    padding: 13px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .register-floating-shape.shape1,
+  .register-floating-shape.shape2 {
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
+  }
+
+  .register-form-2028 {
+    gap: 16px;
+  }
+
+  .register-otp-icon {
+    font-size: 42px;
+  }
+
+  .register-otp-title {
+    font-size: 19px;
+  }
+
+  .register-otp-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .register-card-2028 {
+    padding: 24px 16px;
+  }
+
+  .register-title-2028 {
+    font-size: 17px;
+  }
+
+  .register-logo-2028 span {
+    font-size: 18px;
+  }
+
+  .register-input-2028,
+  .register-select-2028 {
+    font-size: 13px;
+    padding: 10px 10px 10px 38px;
+  }
+
+  .register-btn-2028 {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (min-height: 900px) {
+  .register-bg-2028 {
+    align-items: center;
+  }
+}
+
+@media (max-height: 700px) {
+  .register-bg-2028 {
+    align-items: flex-start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .register-card-2028 {
+    padding: 32px 28px;
+  }
+
+  .register-form-2028 {
+    gap: 16px;
+  }
+}

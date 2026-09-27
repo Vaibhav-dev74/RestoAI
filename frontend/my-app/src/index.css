@@ -1,0 +1,283 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Remove color-scheme constraints - let Chakra handle this */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove conflicting body styles */
+body {
+  margin: 0;
+  /* Remove display: flex and place-items: center */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Remove default link styles - let Chakra handle */
+a {
+  text-decoration: inherit;
+}
+
+/* Remove default button styles - let Chakra handle */
+button {
+  cursor: pointer;
+}
+
+/* Font faces remain the same */
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Extralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* utility class */
+.clash-font {
+  font-family: "ClashDisplay", sans-serif;
+}
+
+/* SF Pro Display */
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.sfpro-font {
+  font-family: "SFProDisplay", sans-serif;
+}
+
+/* Betania Patmos - Regular */
+@font-face {
+  font-family: "BetaniaPatmos";
+  src: url("/fonts/BetaniaPatmosGDL-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+.betania-font {
+  font-family: "BetaniaPatmos", sans-serif;
+}
+
+/* Remove media query for color scheme - let Chakra handle */
+
+/* Pizza hero section fixes */
+.pizza-hero-3d {
+  width: 100%; /* Changed from 100vw to 100% */
+  min-height: 600px;
+  background: #1F2937;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 48px 16px 32px 16px; /* Added horizontal padding */
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+.pizza-hero-headline {
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #F59E0B;
+  letter-spacing: -1px;
+  max-width: 100%; /* Prevent overflow */
+  word-wrap: break-word;
+}
+
+.pizza-hero-subhead {
+  font-size: 1.1rem;
+  color: #F3F4F6;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  max-width: 800px; /* Limit width for better readability */
+  padding: 0 16px;
+}
+
+.pizza-canvas-container {
+  position: relative;
+  width: 420px;
+  max-width: 100%; /* Changed from 98vw */
+  margin: 0 auto 24px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pizza-savings-counter {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFD700;
+  background: rgba(31,41,55,0.85);
+  border-radius: 18px;
+  padding: 8px 24px;
+  box-shadow: 0 2px 12px #FFD70033;
+  z-index: 5;
+  pointer-events: none;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.topping-tooltip {
+  background: #111827;
+  color: #FFD700;
+  font-size: 1rem;
+  padding: 6px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #FFD70033;
+  white-space: nowrap;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.pizza-cta {
+  margin-top: 32px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #F59E0B 0%, #FFD700 100%);
+  color: #1F2937;
+  border: none;
+  border-radius: 32px;
+  padding: 18px 48px;
+  box-shadow: 0 4px 24px #FFD70033;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  max-width: 90%; /* Prevent overflow on small screens */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pizza-cta:hover {
+  background: linear-gradient(90deg, #FFD700 0%, #F59E0B 100%);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .pizza-hero-3d { 
+    padding: 24px 12px 12px 12px; 
+    min-height: auto; /* Allow height to adjust */
+  }
+  
+  .pizza-hero-headline { 
+    font-size: 1.8rem; /* Adjusted for better mobile display */
+  }
+  
+  .pizza-hero-subhead {
+    font-size: 1rem;
+  }
+  
+  .pizza-canvas-container { 
+    width: 100%; 
+  }
+  
+  .pizza-savings-counter { 
+    font-size: 1.2rem; 
+    padding: 6px 16px; 
+    white-space: normal; /* Allow wrapping on very small screens */
+    text-align: center;
+    width: auto;
+    max-width: 90%;
+  }
+  
+  .pizza-cta { 
+    font-size: 1rem; 
+    padding: 14px 24px; 
+    white-space: normal; /* Allow text to wrap */
+    height: auto;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .pizza-hero-headline { 
+    font-size: 1.5rem; 
+  }
+  
+  .pizza-savings-counter {
+    font-size: 1rem;
+    padding: 4px 12px;
+  }
+  
+  .pizza-cta {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Ensure Chakra UI containers don't overflow */
+.chakra-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Fix for any potential overflow issues */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}

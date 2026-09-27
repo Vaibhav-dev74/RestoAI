@@ -1,0 +1,460 @@
+/* components/NotificationBell.css */
+
+.notification-bell {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 9999 !important; /* Ensure bell is always on top */
+    color: #6366f1;
+  }
+  
+  .notification-bell:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+    z-index: 10000;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+  }
+  
+  /* Modal Overlay */
+  .notification-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000 !important; /* Higher than bell */
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .notification-modal {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    z-index: 10001;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .notification-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 2px solid #f0f0f0;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    color: white;
+  }
+  
+  .notification-modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .urgent-icon {
+    font-size: 1.8rem;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .close-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .notification-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f9fafb;
+  }
+  
+  /* Urgent Orders List */
+  .urgent-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .urgent-order-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #fbbf24;
+    position: relative;
+  }
+  
+  .urgent-order-card.critical {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, #fff, #fff5f5);
+    animation: shake 0.5s ease;
+  }
+  
+  .urgent-order-card.high {
+    border-left-color: #f97316;
+    background: linear-gradient(135deg, #fff, #fff9f0);
+  }
+  
+  .urgent-order-card.medium {
+    border-left-color: #fbbf24;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .order-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .order-id {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #1f2937;
+  }
+  
+  .status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .order-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .order-details {
+    margin-bottom: 16px;
+  }
+  
+  .table-info, .customer-info, .order-total {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+  
+  .items-list {
+    margin: 12px 0;
+  }
+  
+  .items-list strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+  }
+  
+  .items-list ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .items-list li {
+    margin-bottom: 4px;
+    color: #4b5563;
+  }
+  
+  .modifications {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    font-style: italic;
+  }
+  
+  .order-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+  
+  .action-btn.processing {
+    background: #8b5cf6;
+    color: white;
+  }
+  
+  .action-btn.processing:hover {
+    background: #7c3aed;
+    transform: translateY(-2px);
+  }
+  
+  .action-btn.preparing {
+    background: #f59e0b;
+    color: white;
+  }
+  
+  .action-btn.preparing:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+  }
+  
+  .action-btn.ready {
+    background: #10b981;
+    color: white;
+  }
+  
+  .action-btn.ready:hover {
+    background: #059669;
+    transform: translateY(-2px);
+  }
+  
+  .action-btn.received {
+    background: #22c55e;
+    color: white;
+  }
+  
+  .action-btn.received:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+  }
+  
+  .action-btn.view {
+    background: #6b7280;
+    color: white;
+  }
+  
+  .action-btn.view:hover {
+    background: #4b5563;
+    transform: translateY(-2px);
+  }
+  
+  .urgent-warning {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .urgent-warning.critical {
+    background: #fee2e2;
+    color: #dc2626;
+    border-left: 3px solid #dc2626;
+  }
+  
+  .urgent-warning.high {
+    background: #ffedd5;
+    color: #f97316;
+    border-left: 3px solid #f97316;
+  }
+  
+  .urgent-warning.medium {
+    background: #fef3c7;
+    color: #f59e0b;
+    border-left: 3px solid #f59e0b;
+  }
+  
+  /* No Orders State */
+  .no-orders {
+    text-align: center;
+    padding: 60px 20px;
+    color: #9ca3af;
+  }
+  
+  .no-orders svg {
+    margin-bottom: 20px;
+  }
+  
+  .no-orders p {
+    font-size: 1.1rem;
+  }
+  
+  /* Loading State */
+  .loading-spinner {
+    text-align: center;
+    padding: 40px;
+    color: #6366f1;
+    font-size: 1.1rem;
+  }
+  
+  /* Modal Footer */
+  .notification-modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: white;
+  }
+  
+  .refresh-btn, .close-modal-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .refresh-btn {
+    background: #6366f1;
+    color: white;
+  }
+  
+  .refresh-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+  }
+  
+  .close-modal-btn {
+    background: #e5e7eb;
+    color: #374151;
+  }
+  
+  .close-modal-btn:hover {
+    background: #d1d5db;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .notification-modal {
+      width: 95%;
+      max-height: 85vh;
+    }
+    
+    .notification-modal-header h2 {
+      font-size: 1.2rem;
+    }
+    
+    .order-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    .order-actions {
+      flex-direction: column;
+    }
+    
+    .action-btn {
+      width: 100%;
+    }
+    
+    .notification-bell {
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+  }

@@ -1,0 +1,78 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment files & Secrets (NEVER COMMIT)
+.env
+.env.*
+!.env.example
+*.env
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/my-app/.env
+frontend/my-app/.env.*
+!frontend/my-app/.env.example
+
+# WhatsApp (Baileys) session & auth credentials
+auth_info/
+**/auth_info/
+backend/auth_info/
+backend/**/auth_info/
+whatsapp_auth/
+**/whatsapp_auth/
+backend/whatsapp_auth/
+backend/**/whatsapp_auth/
+*creds.json
+*session-*.json
+*app-state-sync-*.json
+*pre-key-*.json
+*sender-key-*.json
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+frontend/my-app/dist/
+
+# Python virtual environments & bytecode
+venv/
+.venv/
+env/
+**/venv/
+**/.venv/
+**/env/
+backend/analytics-service/venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Large weights, binaries & compiled extensions
+tfenv/
+*.dll
+*.pyd
+*.weights
+*.pbtxt
+*.bin
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# System & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
