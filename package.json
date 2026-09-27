@@ -1,4 +1,10 @@
 {
+  "name": "resto-root",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm --prefix backend start",
+    "build": "npm --prefix backend install"
+  },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.18",
     "express": "^5.1.0",
